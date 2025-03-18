@@ -1,4 +1,4 @@
-# PCRB Capstone
+# Author: Dragon Xu
 
 # Introduction
 1. Phase 1:
@@ -8,49 +8,64 @@
     - Deliverables
         - A combined dataset stored in SQL Server sandbox schema
         - A complete pipeline to clean, process, and match two datasets
+2. Phase 2: 
+    - Intro: Once businesses are matched and locations are identified, we will ensure that the total payroll amounts are correctly matched to create a more detailed and accurate view of payroll distributions by location. This phase will also validate data to ensure it aligns with the organization’s goals of providing detailed insights into geographically-based insurance premiums.
+    - Goal: Correctly distribute payroll amount to each location.
+    - Measure of success: Still need discussion.
+    - Deliverables
+        - A combined dataset with payroll information correctly distributed to each location
 
 
-# Deployment Instrction
-1. Clone the project phase 1 from the main branch of Azure DevOps repository 'CMU Capstone':
-```
-git clone https://devops.pcrb.com/DefaultCollection/CMU%20Capstone/_git/CMU%20Capstone
-```
-
-2. Go to the Phase directory:
-```
-cd Phase1
-```
-
-3. Create a Python virtual environment based on Python 12.2.4 (either conda or venv is fine, in this examle we are using venv):
-```
-python -m venv env # Use 'python3 ...' for Python3 on Linux and MacOS
-```
-
-4. Activate the virtual environment:
-```
-env\Scripts\activate # use 'source env/bin/activate' on Linux and MacOS
-```
-
-5. Install all the packages that are required for this project (note that we did not specify the version of each package, but as the number of dependencies grows, we recommend to use version control to manage packages and dependencies more carefully to avoid potential conflicts):
-```
-pip install -r requirements.txt
-```
-
-6. Execute the pipeline by running Pipeline_Main.py directly.
-
-7. Monitor the execution status by inspecting the console and the log file.
-
-8. After the pipelin has been executed successfully (about 10 hours), the matched dataframe will be automatically uploaded to Snowflake database. You can inspect all the model evalution metrics in Dashboard.xlsx and the excel file in the folder 'evalution_metrics' (this folder will be automatically created if it does not exist).
-
-9. Notes:
-    - There will be some csv files generated in the folder 'Phase1' along the execution of the pipeline, they are intermediate files that cached using the self-defined decorator @cache_to_csv. They are mostly for testing purpose in case we want to make some minor changes and test the pipeline again , we don't need to wait another 10 hours to see the result. Instead, the previous steps are cached so that they will not be actually executed and therefore do not consume running time.
+# Team Best Practices
+1. Project Management
+    - Create corresponding work items in Azure DevOps(Boards/Boards) based on the action items that we confirmed during the internal team meeting
+        - For most of development type of work, create the work item as "Enhancement". For debugging type of work, create the work item as "Bug"
+        - Put a detailed description in the work items that you created, so that others (as well as yourself) can easily understand what you are working on. Include deliverables too if applied.
+        - Set "Application" to "Actuarial Department - General" from the drop down menu for all work items
+        - Set severity and due date fields based on your own situation, and other fields in the work items can remain as default
+        - Link your commits to a specific work item that you created, so that others can see the coding part of your job. There are multiple ways to do this, and one easy way is to use "#XXXX" in your commit message, where XXXX is your work item ID. After you push your commits, you will be able to see the commit that you associated with the work item
+    - There are multiple stages to categorize the current status of your work items, some common ones that we use are
+        - "Being Verified": you are verifying all the information in the work item is accurate
+        - "Issue Verified": you have verified all the information in the work item is accurate
+        - "In Progress": you are in the process of completing this work item
+        - "Testing": you have completed coding but are testing your code to makes sure it executes correctly
+        - "Resolved": you completed developing and testing your code, and this work item is done
 
 
-# General Workflow
-The high level workflow is intuively reflected in the run() method in Pipeline.py:
+2. Coding Standard
+    - Documentation
+        - Documentation is very important for your teammates, your client, and even yourself in the future to understand your work. So be sure to document as much as possible while you are coding (insufficient documentation has been proved to be a common obstacles for software engineers)
+        - Comment your methods or functions in a standard way. I suggest installing the extension called "Better Comments", which can automatically generate best-practice comment structure for your method.
+        - Document all the assumptions that you make while coding, either they are small or big, temporary or permanent.
+        - Other common documentation includes: dependencies, general workflow, requirements (what the users can and cannot not do)
+    
+    - Development
+        - Always put your code to your own branch, and then merge to the main branch if needed. Do not push directly to the main branch.
+        - Only push necessary files into the repo (.gitignore could come in handy)
+        - Write a good commit message (follow the best practice)
+        - Fully test your code before pushing to your own branch
 
-1. Data Collection
 
-2. Data Cleaing & Feature Enginnering
 
-3. Model Building (matching solution)
+
+
+# Getting Started
+1.	Installation process
+    - Before starting the setup process, ensure that you have the following software installed on your machine
+        - Python
+        - An IDE that supports Python (VSCode, Pycharm, Spider, etc.)
+        - Git
+        - SSMS
+    - Clone what is the main branch to a specified location on your machine
+    - Create a python virtual environment and activate it
+    - Install all the required packages
+    '''
+    pip install -r requirements.txt
+    '''
+2.	Software dependencies
+3.	Latest releases
+4.	API references
+
+# Build and Test
+TODO: Describe and show how to build your code and run the tests. 
+

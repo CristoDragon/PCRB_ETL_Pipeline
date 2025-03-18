@@ -1,0 +1,15 @@
+pandas
+numpy
+sqlalchemy
+fuzzywuzzy
+tqdm
+pyodbc
+openpyxl
+configparser
+cache_pandas
+rapidfuzz
+sentence_transformers
+torch
+jellyfish
+python-Levenshtein
+snowflake-connector-python
