@@ -15,7 +15,7 @@ from src.Model_Evaluation import log_matching_metrics, get_latest_evaluation_met
 
 
 # Date: 11/11/2024
-# Author: CMU Capstone Team (Dragon, Michael, Nirvik, Karl)
+# Author: Dragon Xu
 # Description: This class contains pipeline details and methods to execute cleaning, processing, and matching jobs.
 
 class Pipeline:
